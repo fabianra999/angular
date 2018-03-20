@@ -1,0 +1,22 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Heroes App.</h1>
+    <p class="lead">Nuestrso Heroes Marcel - DC.</p>
+  </div>
+</div>
+
+
+<div class="card-columns">
+  <div class="card" *ngFor="let itemHeroe of heroes; let i = index" >
+    <img class="card-img-top" [src]="itemHeroe.img" [alt]="itemHeroe.nombre">
+    <div class="card-body">
+      <h5 class="card-title">{{ itemHeroe.nombre }}</h5>
+      <p class="card-text">{{ itemHeroe.bio }}</p>
+      <p class="card-text">
+        <small class="text-muted">{{ itemHeroe.aparicion }}</small>
+      </p>
+      <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block"> Ver más... </button>
+     <!--  <a [routerLink]="[ '/heroe', index ]"  class="btn btn-outline-primary btn-block"> Ver más link... </a> -->
+    </div>
+  </div>
+</div>
