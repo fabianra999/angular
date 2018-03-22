@@ -9,6 +9,7 @@ import { Promise } from 'q';
 export class AppComponent {
 
   nombre: string = 'Tomas';
+  nombre2: string = 'tomas ramirez alba';
 
   arreglo: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -28,8 +29,14 @@ export class AppComponent {
     }
   };
 
- /*  valorDePromesa = new Promise ( ( resolve, reject ) => {
-    setTimeout( () => resolve ('llego la data'),350 );
-  }); */
+  fecha = new Date();
+
+  url = "J0ogqBcK9ow";
+
+  activar: boolean = true;
+
+  /*  valorDePromesa = new Promise((resolve, reject) => {
+     setTimeout(() => resolve('llego la data'), 350);
+   }); */
 
 }

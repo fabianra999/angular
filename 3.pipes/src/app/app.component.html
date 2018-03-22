@@ -97,10 +97,51 @@
         <td>{{ salario | number:'.2-2' }}</td>
       </tr>
       <tr>
-        <th scope="row">14</th>
+        <th scope="row">15</th>
         <td>{{ valorDePromesa }}</td>
         <td>async</td>
         <td>{{ valorDePromesa | async }}</td>
+      </tr>
+      <tr>
+        <th scope="row">16</th>
+        <td>{{ fecha }}</td>
+        <td>date</td>
+        <td>{{ fecha | date }}</td>
+      </tr>
+      <tr>
+        <th scope="row">17</th>
+        <td>{{ fecha }}</td>
+        <td>date:'medium'</td>
+        <td>{{ fecha | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">18</th>
+        <td>{{ fecha }}</td>
+        <td>date:'MMMM - dd'</td>
+        <td>{{ fecha | date:'MMMM - dd' }}</td>
+      </tr>
+      <tr>
+        <th scope="row">19</th>
+        <td>{{ nombre2 }}</td>
+        <td>capitalizado</td>
+        <td>{{ nombre2 | capitalizado }}</td>
+      </tr>
+      <tr>
+        <th scope="row">20</th>
+        <td>{{ nombre2 }}</td>
+        <td>capitalizado</td>
+        <td>{{ nombre2 | capitalizado:false }}</td>
+      </tr>
+      <tr>
+        <th scope="row">21</th>
+        <td>{{ nombre }}</td>
+        <td>
+          contraseña: {{ activar }}
+          <br>
+          <button (click)="activar = !activar" class="btn btn-outline-primary" type="button">activar / desactivar</button>
+        </td>
+        <td>capitalizado</td>
+        <td>{{ nombre | contrasena:activar }}</td>
       </tr>
 
   </table>
@@ -111,7 +152,7 @@
 <h2>Slice</h2>
 <ul>
   <li *ngFor="let item of arreglo">
-  <!--   {{ item | slice:1:5  }} -->
+    <!--  {{ item | slice:1:5  }} -->
   </li>
 </ul>
 
@@ -125,3 +166,9 @@
 <pre>
     {{ heroe | json }}
 </pre>
+<br>
+<hr>
+<br>
+<h2>Dom seguro</h2>
+<iframe width="560" height="315" [src]="url | domseguro:'https://www.youtube.com/embed/'" frameborder="0" allow="autoplay; encrypted-media"
+  allowfullscreen></iframe>
