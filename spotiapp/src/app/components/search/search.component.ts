@@ -9,7 +9,7 @@ import { SpotifyService } from '../../services/spotify.service';
 })
 export class SearchComponent {
 
-  termino: string = '';
+  termino = '';
 
   constructor(public _spotify: SpotifyService) { }
 
