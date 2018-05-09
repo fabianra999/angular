@@ -17,10 +17,10 @@ export class SearchComponent {
     if (this.termino.length === 0) {
       return;
     }
-    this._spotify.getArtista(this.termino).subscribe(
+    this._spotify.getArtistas(this.termino).subscribe(
       artistas => {
-        console.dir('info lista');
-        console.dir(artistas);
+        //console.dir('info lista');
+        //console.dir(artistas);
       }
     );
   }
