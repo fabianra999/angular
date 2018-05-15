@@ -9,11 +9,11 @@ export class SpotifyService {
    * https://beta.developer.spotify.com/console/get-search-item/?q=metallica&type=artist&market=&limit=20&offset=
    */
   artistas: any[] = [];
-  urlSpotyfy:string = 'https://api.spotify.com/v1/';
-  token:string = 'BQAMas690T2MJvP1gPxCZjVdZo2E6vnhWIYghFNSBkc-_kFn24FjeNgMLzHmG4zwa6k81JQ2O8vvcI1CdR-D7z3VLts-hl2jE7_qHRroLekunLQy0dJqj5kPRds83s9pWrNJ1FR6ulfg';
+  urlSpotyfy = 'https://api.spotify.com/v1/';
+  token = 'BQAMas690T2MJvP1gPxCZjVdZo2E6vnhWIYghFNSBkc-_kFn24FjeNgMLzHmG4zwa6k81JQ2O8vvcI1CdR-D7z3VLts-hl2jE7_qHRroLekunLQy0dJqj5kPRds83s9pWrNJ1FR6ulfg';
 
   private getHeaders(): HttpHeaders {
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'authorization': 'Bearer ' + this.token
         });
     return headers;
@@ -23,8 +23,8 @@ export class SpotifyService {
   }
 
   getArtista( id: string) {
-    let url = `${ this.urlSpotyfy }artists/${ id }`;
-    let headers = this.getHeaders();
+    const url = `${ this.urlSpotyfy }artists/${ id }`;
+    const headers = this.getHeaders();
 
     return this.http.get(url, { headers });
      /*  .map((respuesta: any) => {
@@ -32,10 +32,10 @@ export class SpotifyService {
         return this.artistas;
       }); */
   }
- 
+
   getArtistas(termino: string) {
-    let url = `${this.urlSpotyfy}search?query=${termino}&type=artist&market=CO&limit=20`;
-    let headers = this.getHeaders();
+    const url = `${this.urlSpotyfy}search?query=${termino}&type=artist&market=CO&limit=20`;
+    const headers = this.getHeaders();
 
     return this.http.get(url, { headers: headers })
       .map((respuesta: any) => {
