@@ -2,7 +2,8 @@
  * Routes app
  *  => useHash => add (#/)
  */
-import { Routes, RouterModule } from '@angular/router';
+
+/* import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './components/home/home.component';
@@ -17,16 +18,16 @@ const app_routes: Routes = [
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 
-/**
+**
  *  ng-router
  *  => Ajuste .forChild(routes) pot .forRoot(routes)
- */
+ *
 @NgModule({
     imports: [RouterModule.forRoot(app_routes, { useHash: true })],
     exports: [RouterModule]
 })
 
-export class FeatureRoutingModule { }
+export class FeatureRoutingModule { } */
 
 
 /**
@@ -35,3 +36,14 @@ export class FeatureRoutingModule { }
 
 // export const app_routing = RouterModule.forRoot(app_routes, {useHash: true});
 
+
+ import { Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { SearchComponent } from './components/search/search.component';
+
+export const ROUTES: Routes =[
+    { path: 'home', component: HomeComponent },
+    { path: 'search', component: SearchComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: '**', pathMatch: 'full', redirectTo: 'home' }
+]; 
