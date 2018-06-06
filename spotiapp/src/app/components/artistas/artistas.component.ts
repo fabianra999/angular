@@ -16,7 +16,7 @@ export class ArtistasComponent implements OnInit {
 
   ngOnInit() {
 
-    this.activatedRoute.params
+   /*  this.activatedRoute.params
       .map( params => params['id'] )
       .subscribe( id => {
         console.log(id);
@@ -24,7 +24,7 @@ export class ArtistasComponent implements OnInit {
           console.log( artista );
           this.artista = artista;
         });
-      });
+      }); */
 
   }
 

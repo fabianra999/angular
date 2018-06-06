@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SpotifyService {
@@ -10,7 +9,7 @@ export class SpotifyService {
    */
   artistas: any[] = [];
   urlSpotyfy = 'https://api.spotify.com/v1/';
-  token = 'BQAMas690T2MJvP1gPxCZjVdZo2E6vnhWIYghFNSBkc-_kFn24FjeNgMLzHmG4zwa6k81JQ2O8vvcI1CdR-D7z3VLts-hl2jE7_qHRroLekunLQy0dJqj5kPRds83s9pWrNJ1FR6ulfg';
+  token = 'BQAR6zIT9i-3IQRL0V2vvNnf4VjuCzU9Hx_Ld_QKqB8GeznFlmioCyXnHSXFpUGPkahx223bVHz1dkt__n4';
 
   private getHeaders(): HttpHeaders {
     const headers = new HttpHeaders({
@@ -37,13 +36,16 @@ export class SpotifyService {
     const url = `${this.urlSpotyfy}search?query=${termino}&type=artist&market=CO&limit=20`;
     const headers = this.getHeaders();
 
-    return this.http.get(url, { headers: headers })
-      .map((respuesta: any) => {
+    return this.http.get(url, { headers: headers });
+     /*  .map((respuesta: any) => {
         this.artistas = respuesta.artists.items;
         return this.artistas;
-      });
+      }); */
   }
 
-
+  getNewReleases () {
+    const headers = this.getHeaders(); 
+    return this.http.get('https://api.spotify.com/v1/browse/new-releases', { headers });
+  }
 
 }

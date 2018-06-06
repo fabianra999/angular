@@ -2,17 +2,22 @@
     <div class="row">
         <div class="col-md-3">
             <label for="termino">Buscar Artisata</label>
-            <input type="text" placeholder="Buscar Artista..." class="form-control" (keyup)="buscarArtista()" [(ngModel)]="termino">
+            <input #termino type="text" placeholder="Buscar Artista..." class="form-control" (keyup)="buscarArtista(termino.value)">
         </div>
         <div class="col-md-9" *ngIf="termino">
             <h1 class="text-capitalize">{{ termino }}</h1>
             <hr>
             <div class="row">
-                <div class="col-md-3 text-center puntero" *ngFor="let artista of _spotify.artistas" [routerLink]="[ '/artist', artista.id ]">
-                    <img [src]="artista.images | sinfoto" class="img-thumbnail">
-                    <p>{{ artista.name }} </p>
+                <div class="card-columns m-5">
+                    <div class="card" *ngFor="let artista of artistas" [routerLink]="[ '/artist', artista.id ]">
+                        <img class="card-img-top" [src]="artista.images | sinfoto" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:  black;">{{ artista.name }}</h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
