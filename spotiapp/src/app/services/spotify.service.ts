@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operator';
 
 @Injectable()
 export class SpotifyService {
@@ -9,7 +10,7 @@ export class SpotifyService {
    */
   artistas: any[] = [];
   urlSpotyfy = 'https://api.spotify.com/v1/';
-  token = 'BQAR6zIT9i-3IQRL0V2vvNnf4VjuCzU9Hx_Ld_QKqB8GeznFlmioCyXnHSXFpUGPkahx223bVHz1dkt__n4';
+  token = 'BQAmRK7EUsF6xWDrLzt9s5ewrxEiCi6sd-y4nf_uSZC8XwyHyjnkgJibia0vrFFcRn4jHjEreQhG6G_RZ7A';
 
   private getHeaders(): HttpHeaders {
     const headers = new HttpHeaders({
@@ -44,8 +45,11 @@ export class SpotifyService {
   }
 
   getNewReleases () {
-    const headers = this.getHeaders(); 
-    return this.http.get('https://api.spotify.com/v1/browse/new-releases', { headers });
+    const headers = this.getHeaders();
+    return this.http.get('https://api.spotify.com/v1/browse/new-releases', { headers })
+    .pipe(map((data: any) => { 
+      return data.albums.items;
+    }));
   }
 
 }
