@@ -11,8 +11,7 @@ export class SearchComponent {
   constructor(public sotify: SpotifyService) {}
 
   buscarArtista(termino: string) {
-    this.sotify.getArtistas(termino).subscribe((data: any) => {
-     // console.log(data);
+     this.sotify.getArtistas(termino).subscribe((data: any) => {
       this.artistas = data;
     });
   }

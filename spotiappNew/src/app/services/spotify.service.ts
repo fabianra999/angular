@@ -10,24 +10,21 @@ export class SpotifyService {
    * Nuevo Token
    * https://beta.developer.spotify.com/console/get-search-item/?q=metallica&type=artist&market=&limit=20&offset=
    */
-  artistas: any[] = [];
-  urlSpotyfy = 'https://api.spotify.com/v1/';
-  token = 'BQCWI-rr1KShSiPuoIySCOQu0CmE9Z5Gq9bK7Q6uqZd_9wx6F8WrJy4oetIc7lmxMk5OvNX1qAYThot5ku4';
 
-  private getHeaders(): HttpHeaders {
+  getQuey( query: string ) {
+    const url = `https://api.spotify.com/v1/${query}`;
     const headers = new HttpHeaders({
-      'authorization': 'Bearer ' + this.token
-        });
-    return headers;
+      'Authorization': 'Bearer BQA8pqM8XMXlMxk_Emh_jDtnavPGmwqMEmf_HXFoHzo2I5nNDSTL66mPoBpKv8OWhKNqi49YXTn3S3oXWCU'
+    });
+    return this.http.get(url, {headers});
   }
+
 
   constructor(private http: HttpClient) {}
 
   // Nuevo
   getNewReleases() {
-    const headers = this.getHeaders();
-    const url = `${this.urlSpotyfy}browse/new-releases`;
-    return this.http.get(url, { headers })
+    return this.getQuey('browse/new-releases')
     .pipe( map( data => {
       return data['albums'].items;
     } ) );
@@ -35,9 +32,7 @@ export class SpotifyService {
 
   // Search
   getArtistas(termino: string) {
-    const headers = this.getHeaders();
-    const url = `${this.urlSpotyfy}search?query=${termino}&type=artist&market=CO&limit=20`;
-    return this.http.get(url, { headers: headers })
+    return this.getQuey(`search?q=${termino}&type=artist&limit=20`)
     .pipe( map( data => data['artists'].items ) );
   }
 }
