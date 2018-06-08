@@ -1,0 +1,13 @@
+<div class="container mt-4">
+    <div class="card-columns animated fadeIn">
+        <div class="card" *ngFor="let item of items">
+            <img class="card-img-top" [src]="item.images | sinfoto" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title" style="color:  black;">{{ item.name }}</h5>
+                <p class="card-text">
+                    <span class="badge badge-primary" *ngFor="let artista of item.artists">{{ artista.name }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

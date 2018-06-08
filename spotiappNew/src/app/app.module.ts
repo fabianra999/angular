@@ -15,6 +15,8 @@ import { ROUTES } from "./app.routes";
 import { SpotifyService } from "./services/spotify.service";
 // Pipes
 import { SinfotoPipe } from "./pipe/sinfoto.pipe";
+import { TarjetetasComponent } from './components/shared/tarjetetas/tarjetetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { SinfotoPipe } from "./pipe/sinfoto.pipe";
     SearchComponent,
     ArtistaComponent,
     NavbarComponent,
-    SinfotoPipe
+    SinfotoPipe,
+    TarjetetasComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

@@ -6,15 +6,9 @@
         </div>
         <div class="col-md-9" *ngIf="termino">
             <hr>
+            <app-loading *ngIf="loading"></app-loading>
             <div class="row">
-                <div class="card-columns m-5">
-                    <div class="card" *ngFor="let artista of artistas" [routerLink]="[ '/artist', artista.id ]">
-                        <img class="card-img-top" [src]="artista.images | sinfoto" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color:  black;">{{ artista.name }}</h5>
-                        </div>
-                    </div>
-                </div>
+                <app-tarjetetas *ngIf="!loading" [items]="artistas"></app-tarjetetas>
             </div>
         </div>
 
