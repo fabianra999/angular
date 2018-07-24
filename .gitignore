@@ -8,7 +8,8 @@
 # dependencies
 */node_modules
 /node_modules
-2.spa\SPA\node_modules
+#spa
+/2.spa\SPA\node_modules
 
 # IDEs and editors
 /.idea
