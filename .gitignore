@@ -10,6 +10,8 @@
 /node_modules
 #spa
 /2.spa/SPA/node_modules
+/ionicAvanzado/mapSingular
+/ionicAvanzado/mapSingular
 
 # IDEs and editors
 /.idea
